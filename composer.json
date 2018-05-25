@@ -1,0 +1,26 @@
+{
+    "name": "wonderwp/documentation",
+    "type": "library",
+    "description": "WonderWp Documentation Component",
+    "keywords": ["container"],
+    "homepage": "https://wonderwp.net",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Desvaux",
+            "homepage": "http://jdmweb.com"
+        },
+        {
+            "name": "WonderWp Community",
+            "homepage": "https://wonderwp.net/contributors"
+        }
+    ],
+    "require": {
+        "php": "~5.6|~7",
+        "pimple/pimple": "^3.0"
+    },
+    "require-dev": {
+    	daux/daux.io": "^0.7.2		
+    },
+    "minimum-stability": "dev"
+}
