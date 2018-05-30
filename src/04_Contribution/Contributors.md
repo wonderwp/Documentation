@@ -6,8 +6,8 @@
 
 ## Contributors
 
-- Cédric Girard
-- Cyril Saint Yves
-- Kevin Marcachi
+- Cédric Girard 
+- Cyrosy. [Github](https://github.com/cyrosy)
+- Moduleon [Github](https://github.com/moduleon)
 - Maxime Noyelle
 - You ?
