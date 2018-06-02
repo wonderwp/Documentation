@@ -8,7 +8,7 @@ If you use the wp_mail function everywhere in your code, achieving this scenario
 
 As always, we've tried to structure this a little, by providing an interface, and some classes implementing it. The mailing component provides therefore a Mailer interface, a WpMailer, which provides a wp_mail implementation, but it also provides a Mandrill and a SwiftMailer implementation.
 
-## Using the mailer component
+## Using the mailer
 
 First you can have a look at the MailerInterface to get a sense of the methods provided.
 

@@ -3,7 +3,7 @@
 
 The bootstrap file is the file that is going to be loaded by WordPress in its `active_plugins` option. It is your plugin entry point.
 
-Here's an example of a plugin bootstrap file that we'll comment right after:
+Here's an example of a plugin bootstrap file, straight out pf the generator, that we'll comment right after:
 
 ```
 /**
@@ -51,7 +51,7 @@ if (!defined('WWP_PLUGIN_ACTU_MANAGER')) { //So you can change this by an overri
 }
 
 /**
- * Register activation hook
+ * Register activation hook (if need be)
  * The code that runs during plugin activation.
  * This action is documented in includes/ErActivator.php
  */
@@ -64,7 +64,7 @@ register_activation_hook(__FILE__, function () {
 });
 
 /**
- * Register deactivation hook
+ * Register deactivation hook (if need be)
  * The code that runs during plugin deactivation.
  * This action is documented in includes/MembreDeactivator.php
  */
@@ -101,11 +101,11 @@ if (!$plugin instanceof ManagerInterface) {
 $plugin->run();
 ```
 
-Ideally, this file should do a few things:
+Ideally, this file should do only a few things:
 
 -  Define a few useful constants (plugin name, version and textdomain)
 -  Register an activation hook
 -  Register a deactivation hook
 -  Require and instanciate the plugin manager
 
-The rest of the plugin mechanic is now handled by the manager
+The rest of the plugin mechanic is now handled by the manager, that you could discover next.

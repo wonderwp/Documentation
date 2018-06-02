@@ -14,6 +14,8 @@ The good thing with a generator besides the fact that is makes you gain time, is
 
 It's also an interesting way to discover what the code of a WonderWp plugin looks like with the concepts we've talked about in place (namespacing, dependency injection etc).
 
+If you don't feel like using the generator, you can read the next section about the plugin architecture to get a feeling of the plugin structure.
+
 ## How to generate a plugin? 
 
 WonderWp provides a wp-cli command to help you generate your plugin skeleton.

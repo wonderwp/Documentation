@@ -101,15 +101,9 @@ class ActuManager extends AbstractPluginManager
         $this->setConfig('path.url', plugin_dir_url(dirname(__FILE__)));
         $this->setConfig('textDomain', WWP_ACTU_TEXTDOMAIN);
 
-        $this->setConfig('customPostTypeName', WWP_ACTU_TEXTDOMAIN);
-        $this->setConfig('customPostTaxonomy', 'news_category');
-
         $this->setConfig('news_per_page', $this->getConfig('news_per_page', 20));
         $this->setConfig('enableFilters', $this->getConfig('enableFilters', true));
         $this->setConfig('viewEntityMapper', $this->getConfig('viewEntityMapper', [ActuFrontMapper::class, 'map']));
-
-        $jsAssetGroup = defined('FRONT_ENV') && FRONT_ENV === 'webpack' ? 'plugins' : 'app';
-        $this->setConfig('jsAssetGroup', $jsAssetGroup);
 
         //Register Controllers
         $this->addController(AbstractManager::ADMIN_CONTROLLER_TYPE, function () {

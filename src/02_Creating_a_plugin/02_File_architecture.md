@@ -2,7 +2,9 @@
 
 
 
-you have basically 4 sections : 
+Here's the main architecture guideline so you can get a feeling about how to organize your files and folders, and see where to put your code.
+
+This is a guideline. Your plugin could have much less files (just the includes and admin folders for example).
 
 - admin //All related admin resources
     - views
@@ -33,6 +35,5 @@ you have basically 4 sections :
 - index.php //Silence is golden
 - myplugin.php //Plugin bootstrap file
 
-This is a sample definition. Your plugin could have much less files (just the includes and admin folders for example).
 
 Now that you've had a better view of the plugin architecture, let's then get into more details about what you have in the includes folder.
