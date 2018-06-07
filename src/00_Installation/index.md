@@ -23,7 +23,7 @@ That will tell composer where your WordPress instance is located, and where to i
 
 ## Prepare your WordPress install for must-use plugins (muplugins)
 
-muplugins are some special kinds of plugins that can't be deactivated. If your WordPress install doesn't support them yet, you can activate them like so : https://codex.wordpress.org/Must_Use_Plugins 
+muplugins are some special kinds of plugins that can't be deactivated. If your WordPress install doesn't support them yet, you can activate them like so : [https://codex.wordpress.org/Must_Use_Plugins](https://codex.wordpress.org/Must_Use_Plugins) 
 
 ## Require WonderWp
 

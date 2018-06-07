@@ -12,12 +12,13 @@ Typically the container holds the framework components references, and the manag
 
 - Cache : `wwp.cache.cache`
 - Forms
-	- Form object : `wwp.forms.form`. [Factory]
-	- Form view : `wwp.forms.formView` [Factory]
-	- Form validator : `wwp.forms.formValidator` [Factory]
-- Log : `wwp.log.log`
-- Mailers : `wwp.emails.mailer`	
-- Router : `wwp.routes.router`
+	- Form object : `wwp.form.form`. [Factory]
+	- Form view : `wwp.form.view` [Factory]
+	- Form validator : `wwp.form.validator` [Factory]
+- Hook Manager : `wwp.hook.manager`
+- Log : `wwp.logging.logger`
+- Mailers : `wwp.mailing.mailer`	
+- Router : `wwp.routing.router`
 
 ## How the container works
 

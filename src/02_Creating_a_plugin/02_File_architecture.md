@@ -2,7 +2,7 @@
 
 
 
-Here's the main architecture guideline so you can get a feeling about how to organize your files and folders, and see where to put your code.
+Here's the main plugin architecture guideline so you can get a feeling about how to organize your files and folders, and see where to put your code. You can also apply this structure to any theme you build with WonderWp.
 
 This is a guideline. Your plugin could have much less files (just the includes and admin folders for example).
 
@@ -32,6 +32,8 @@ This is a guideline. Your plugin could have much less files (just the includes a
 	- js
 		- my-plugin-public.js  
 	- views
+- tests //Automated tests
+	- [...]
 - index.php //Silence is golden
 - myplugin.php //Plugin bootstrap file
 
