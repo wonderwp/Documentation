@@ -8,6 +8,10 @@ def parseJsonToMap(String json) {
 
 def loadCreds(){
 
+        echo "The secret file is $wonderwp_doc_credentials"
+        sh MY_FILE_DATA=`cat $MY_SECRET_FILE`;
+        echo "The secret file data is $MY_FILE_DATA";
+
         script {
             MY_SECRET_FILE_CONTENT = sh (
                 script: "cat ${wonderwp_doc_credentials}",
