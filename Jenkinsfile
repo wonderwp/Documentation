@@ -73,7 +73,7 @@ pipeline {
 	        	echo 'skipped composer install';
 	        }
 
-	        sh 'vendor/bin/daux --source=vendor/wonderwp/documentation/src/ --destination=vendor/wonderwp/documentation/doc --delete';
+	        sh 'vendor/bin/daux --source=src/ --destination=doc --delete';
         }
       }
     }
