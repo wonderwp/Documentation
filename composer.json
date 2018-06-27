@@ -20,7 +20,7 @@
         "pimple/pimple": "^3.0"
     },
     "require-dev": {
-    	daux/daux.io": "^0.7.2		
+    	"daux/daux.io": "^0.7.2"
     },
     "minimum-stability": "dev"
 }
