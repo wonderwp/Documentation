@@ -6,16 +6,16 @@ def parseJsonToMap(String json) {
     return new HashMap<>(slurper.parseText(json))
 }
 
-def loadCreds(secretFile){
-    withCredentials([file(credentialsId: secretFile, variable: 'MY_SECRET_FILE')]) {
+def loadCreds(){
+
         script {
             MY_SECRET_FILE_CONTENT = sh (
-                script: "cat ${MY_SECRET_FILE}",
+                script: "cat ${wonderwp_doc_credentials}",
                 returnStdout: true
             ).trim()
             return parseJsonToMap(MY_SECRET_FILE_CONTENT)
         }
-    }
+
 }
 
 def handleException() {
