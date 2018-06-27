@@ -81,7 +81,7 @@ pipeline {
             script {
             	try{
 	                echo "Deploying Documentation"
-	                def creds = loadCreds('wonderwp_doc_credentials');
+	                def creds = loadCreds();
 	                deployCode(creds);
 	            } catch(exc){
 	            	handleException();
