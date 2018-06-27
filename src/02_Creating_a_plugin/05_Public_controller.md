@@ -1,6 +1,6 @@
 # Public Controller
 
-The aim of a public controller is to be the entry point of your frontend call stack. By default you'll enter this file either via a route (be it a file route or a callable route - see [the routing section](../06_Services/02_Route_service.md) for more information), or via a shortcode.
+The aim of a public controller is to be the entry point of your frontend call stack. By default you'll enter this file either via a route (be it a file route or a callable route - see [the routing section](./06_Services/02_Route_service.md) for more information), or via a shortcode.
 
 ## Creating a public controller
 
@@ -27,7 +27,7 @@ You have two methods to reach your controller : via a shortcode or a route. The 
 
 ### ... via a route
 
-- See the [route service documentation](../06_Services/02_Route_service.md).
+- See the [route service documentation](./06_Services/02_Route_service.md).
 - TL;DR:
  
 ```
@@ -74,7 +74,7 @@ $a = $this->request->query->get('a');
 $b = $this->request->request->get('b');
 ```
 
-More on this subject in the [Http Foundation documentation section](../../03_Framewok_components/Http_Foundation/index.md).
+More on this subject in the [Http Foundation documentation section](../03_Framewok_components/Http_Foundation/index.md).
 
 ## Calling a view from inside a controller action
 
