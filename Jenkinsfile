@@ -27,8 +27,7 @@ def handleException() {
 
 def deployCode(creds) {
     echo "Sending files to remote server"
-    echo "rsync -uvrn --delete --exclude-from ${WORKSPACE}/CI/exclude-file.txt ${WORKSPACE}/* ${creds.sshUser}@${creds.sshServer}:${creds.sshRemotePath};"
-    sh "rsync -uvr --delete --exclude-from ${WORKSPACE}/CI/exclude-file.txt ${WORKSPACE}/* ${creds.sshUser}@${creds.sshServer}:${creds.sshRemotePath};"
+    sh "rsync -uvr --delete ${WORKSPACE}/doc/* ${creds.sshUser}@${creds.sshServer}:${creds.sshRemotePath};"
 }
 
 @NonCPS
@@ -78,7 +77,6 @@ pipeline {
       }
     }
     stage('deploy documentation') {
-        when { branch 'master' }
         steps {
             script {
             	try{
