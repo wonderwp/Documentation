@@ -66,7 +66,6 @@ pipeline {
       steps {
         script{
         	defineVariables();
-            echo "Starting Build #${env.BUILD_ID}, triggered by $BRANCH_NAME";
 
             if(env.runComposer=='true'){
 	            sh 'composer install';
