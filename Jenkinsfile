@@ -26,8 +26,9 @@ def handleException() {
 }
 
 def deployCode(creds) {
-    echo "Sending files to remote server"
-    sh "rsync -uvr --delete ${WORKSPACE}/doc/* ${creds.sshUser}@${creds.sshServer}:${creds.sshRemotePath};"
+    echo "Sending files to remote server";
+    sh "ssh ${creds.sshUser}@${creds.sshServer}
+    //sh "rsync -uvr --delete ${WORKSPACE}/doc/* ${creds.sshUser}@${creds.sshServer}:${creds.sshRemotePath};"
 }
 
 @NonCPS
