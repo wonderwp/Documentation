@@ -111,6 +111,6 @@ There's also a plugin generator to help you quick start your plugin development.
 
 ## Sounds interesting?
 
-- Getting started
-- Creating a plugin
-- Framewotk components
+- [Getting started](./00_Installation/index.md)
+- [Creating a plugin](./02_Creating_a_plugin)
+- [Framework components](./03_Framewok_components)
