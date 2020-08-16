@@ -74,7 +74,7 @@ $a = $this->request->query->get('a');
 $b = $this->request->request->get('b');
 ```
 
-More on this subject in the [Http Foundation documentation section](../03_Framewok_components/Http_Foundation/index.md).
+More on this subject in the [Http Foundation documentation section](../../03_Framewok_components/Http_Foundation/index.md).
 
 ## Calling a view from inside a controller action
 

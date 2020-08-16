@@ -7,7 +7,7 @@ This service is then responsible for registering all the plugin hooks, and then 
 ## How to create a hook service
 Create a class that extends the `AbstractHookService` class. `AbstractHookService` implements the `HookServiceInterface`, therefore it requires that your hook service implements a `run()` method.
 
-```php
+```
 class MyPluginHookService extends AbstractHookService
 {
 	public function run(){

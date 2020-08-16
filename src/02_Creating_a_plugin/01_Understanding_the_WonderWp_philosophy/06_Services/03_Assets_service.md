@@ -6,7 +6,7 @@ The asset service is a place where you can register your assets. Registration is
 
 Create a class that extends the `AbstractAssetService` class. `AbstractAssetService ` implements the `AssetServiceInterface `, therefore it requires that your hook service implements a `getAssets()` method.
 
-```php
+```
 class MyPluginAssetService extends AbstractAssetService
 {
 	public function getAssets(){

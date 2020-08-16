@@ -16,14 +16,14 @@ This is a guideline. Your plugin could have much less files (just the includes a
 - includes //All the autoloaded classes
 	-  Controller
 		- AdminController.php //Backend Controller
-		- PublicController.php //FrontEnd Controller
+		- PublicController.php //FrontEnd Controller  ([See example](./05_Public_controller.md))
     - [...]
 	-  Services
-		- HookService.php
-		- Activator.php //Activation routine (table creation)
-		- Deactivator.php //Deactivation routine (if any)
+		- HookService.php  ([See example](./06_Services/01_Hook_service.md))
+		- Activator.php //Activation routine (table creation) ([See example](./06_Services/02_Activator.md))
+		- Deactivator.php //Deactivation routine (if any) ([See example](./06_Services/03_Deactivator.md))
 		- [...]
-   - Manager.php //Main entry point
+   - Manager.php //Main entry point  ([See example](./04_Plugin_Manager.md))
 - languages //language files
     - myplugin.pot, .mo, .po
 - public //All related public resources
@@ -35,7 +35,7 @@ This is a guideline. Your plugin could have much less files (just the includes a
 - tests //Automated tests
 	- [...]
 - index.php //Silence is golden
-- myplugin.php //Plugin bootstrap file
+- myplugin.php //Plugin bootstrap file  ([See example](./03_Plugin_bootstrap_file.md))
 
 
 Now that you've had a better view of the plugin architecture, let's then get into more details about what you have in the includes folder.

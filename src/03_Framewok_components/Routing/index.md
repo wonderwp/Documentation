@@ -18,4 +18,4 @@ The router then asks each routing service it knows for custom routes, and takes 
 
 ## Declaring custom routes
 
-There's a [dedicated section](../../02_Creating_a_plugin/06_Services/02_Route_service.md) in the documentation for this that we encourage you to read beacause that's where you'll see how to declare your own routes.
+There's a [dedicated section](../../02_Creating_a_plugin/01_Understanding_the_WonderWp_philosophy/06_Services/02_Route_service.md) in the documentation for this that we encourage you to read beacause that's where you'll see how to declare your own routes.
