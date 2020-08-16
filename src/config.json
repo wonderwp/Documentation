@@ -20,7 +20,7 @@
         "inherit_index": true,
 
         "repo": "wonderwp/wonderwp",
-        "twitter": ["jdmweb"],
+        "twitter": ["_WonderWp","jdmweb"],
         "links": {
             "Download": "https://github.com/wonderwp/wonderwp/archive/master.zip",
             "GitHub Repo": "https://github.com/wonderwp/wonderwp",
