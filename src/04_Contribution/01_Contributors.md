@@ -10,4 +10,4 @@
 - Cyrosy. [Github](https://github.com/cyrosy)
 - Moduleon [Github](https://github.com/moduleon)
 - Maxime Noyelle
-- You ?
+- [You](./02_Contributing.md) ?
