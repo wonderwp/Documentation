@@ -4,12 +4,12 @@ Sometimes in plugins, you could want to create some specific WP-CLI command.
 
 ## How to create a task service
 
-Create a class that implements the `TaskServiceInterface`, which requires you to implement a `registerCommands` method.
+Create a class that implements the `TaskServiceInterface`, which requires you to implement a `register` method.
 
 ```
 class MyPluginCommandService implements TaskServiceInterface
 {
-    public function registerCommands(){
+    public function register(){
         if(!class_exists('WP_CLI')){ return; }
         
         //Register your commands

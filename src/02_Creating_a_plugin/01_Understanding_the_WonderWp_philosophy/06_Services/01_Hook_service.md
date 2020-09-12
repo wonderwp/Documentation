@@ -10,7 +10,7 @@ Create a class that extends the `AbstractHookService` class. `AbstractHookServic
 ```
 class MyPluginHookService extends AbstractHookService
 {
-	public function run(){
+	public function register(){
 		//Register your hooks from there
 	}
 }
@@ -35,7 +35,7 @@ For example :
 ```
 class MyPluginHookService extends AbstractHookService
 {
-	public function run(){
+	public function register(){
 		//Register your hooks from there
 		
 		$adminUiService = $this->manager->getService('adminUi');
