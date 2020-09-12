@@ -20,10 +20,10 @@ class MyPluginHookService extends AbstractHookService
 Now that your hook service is ready, add these few lines inside your plugin manager to let him now about your hook service.
 
 ```
-$this->addService(AbstractService::$HOOKSERVICENAME,$container->factory(function(){
+$this->addService(AbstractService::$HOOKSERVICENAME,function(){
     //Hook service
     return new MyPluginHookService($this);
-}));
+});
 ```
 
 ## Adding the hooks
