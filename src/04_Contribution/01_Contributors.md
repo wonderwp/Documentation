@@ -6,8 +6,9 @@
 
 ## Contributors
 
-- Cédric Girard 
+- Kevkehz [Github](https://github.com/Kevkehz)
+- Cédric Girard [Github](https://github.com/cedric-g)
 - Cyrosy. [Github](https://github.com/cyrosy)
 - Moduleon [Github](https://github.com/moduleon)
-- Maxime Noyelle
+- Maxime Noyelle [Github](https://github.com/geckodeMaxime)
 - [You](./02_Contributing.md) ?

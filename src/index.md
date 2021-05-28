@@ -27,27 +27,27 @@ WonderWp doesn't recode WordPress, it doesn't really add core concepts that Word
 ### Overview
 
 - It helps you to work with **composer**, gives you access to its ecosystem of libraries and allows you tu use its **Autoloader**.
-- It gives you a **Dependency injection container**
+- It gives you a [**Dependency injection container**](./03_Framewok_components/02_Dependency_Injection)
 - It provides classes to convert procedurals concepts into **Object Oriented** Interfaces, and PSRs, and implementations for :
-	- Routing
-	- Caching
-	- Forms
-	- HTTP foundation
-	- Logging
-	- Emails
-	- Medias
+	- [HTTP foundation](./03_Framewok_components/01_Http_Foundation)
+	- [Routing](./03_Framewok_components/03_Routing)
+	- [CLI](./03_Framewok_components/04_Task_-_CLI)
+	- [Forms](./03_Framewok_components/05_Forms)
+	- [Medias](./03_Framewok_components/07_Medias)
+	- [Logging](./03_Framewok_components/08_Logging)
+	- [Emails](./03_Framewok_components/09_Mailing)
+	- [Caching](./03_Framewok_components/11_Cache)
 	- Notifications
 	- Post Panels
 	- Post Types
 	- Search Engine
-	- CLI
 - Instead of writing 1000 lines long functions files, it encourages you to declare **services**, aka classes to work with :
-	- Activator / Deactivator
-	- Routing
-	- Assets Management
-	- Ajax endpoints
-	- Shortcodes
-	- WP-CLI commands
+	- [Activator / Deactivator](./02_Creating_a_plugin/04_Services/02_Activator.md)
+	- [Routing](./02_Creating_a_plugin/04_Services/02_Route_service.md)
+	- [Assets Management](./02_Creating_a_plugin/04_Services/03_Assets_service.md)
+	- [Ajax endpoints](./02_Creating_a_plugin/04_Services/04_Api_service.md)
+	- [Shortcodes](./02_Creating_a_plugin/04_Services/06_Shortcode_service.md)
+	- [WP-CLI commands](./02_Creating_a_plugin/04_Services/05_Task_service.md)
 - It gives **MVC** capabilities
 - IT proposes a **plugin blueprint** (folder organisation, naming conventions, full object approach, empty function.php file) 
 
@@ -111,6 +111,6 @@ There's also a plugin generator to help you quick start your plugin development.
 
 ## Sounds interesting?
 
-- [Getting started](./00_Installation/index.md)
+- [Getting started](./00_Getting_started)
 - [Creating a plugin](./02_Creating_a_plugin)
 - [Framework components](./03_Framewok_components)
