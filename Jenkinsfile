@@ -60,6 +60,10 @@ def defineVariables(){
 
 pipeline {
   agent any
+  options {
+    buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
+    disableConcurrentBuilds()
+  }
   stages {
     stage('Build') {
       steps {
@@ -67,7 +71,7 @@ pipeline {
         	defineVariables();
 
             if(env.runComposer=='true'){
-	            sh 'composer install';
+	            sh '/usr/bin/php7.4 /usr/local/bin/composer install --prefer-dist';
 	        } else {
 	        	echo 'skipped composer install';
 	        }
