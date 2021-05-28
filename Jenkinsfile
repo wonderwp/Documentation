@@ -76,7 +76,7 @@ pipeline {
 	        	echo 'skipped composer install';
 	        }
 
-	        sh 'vendor/bin/daux --source=src/ --destination=doc --delete';
+	        sh 'vendor/bin/daux generate --source=src/ --destination=doc --delete';
         }
       }
     }

@@ -14,7 +14,7 @@ Then you should be able to generate / serve the documentation locally with the t
 
 This transforms your markup into HTML once.
 
-`vendor/bin/daux --source=src --destination=doc --delete`
+`vendor/bin/daux generate --source=src --destination=doc --delete`
 
 ## Local doc preview
 
