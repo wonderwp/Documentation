@@ -4,7 +4,7 @@ The form builder came from the need to allow developers to manipulate form objec
 
 ## How to create a form
 
-1. WonderWp provides a form factory available in the container. Ask it to give you a new instance like so : `$form = $container['wwp.forms.form'];`
+1. WonderWp provides a form factory available in the container. Ask it to give you a new instance like so : `$form = $container['wwp.form.form'];`
 2. Once you've got your instance, add some fields to it via its `addField` method. You can find the complete list of available fields objects under WonderWp/Component/Form/Field namespace. The next document section describes them all if you want to know more about the parameters they use.
 
 ## Example
@@ -12,7 +12,7 @@ The form builder came from the need to allow developers to manipulate form objec
 ```
 
 /** @var FormInterface $form */
-$form = $container['wwp.forms.form']; //Get a new form instance from the container factory
+$form = $container['wwp.form.form']; //Get a new form instance from the container factory
 
 $form->setName('er-login-form'); //You can set a name if you want
 

@@ -2,13 +2,13 @@
 
 The form view object is the object responsible for computing the html markup of a FormInterface instance.
 
-The default from view embarks a default html structure, but you can create your own if you want by creating your own object, and replacing it in place of the current one in the container at the `'wwp.forms.formView'` key.
+The default from view embarks a default html structure, but you can create your own if you want by creating your own object, and replacing it in place of the current one in the container at the `'wwp.form.formView'` key.
 
 Given the following form :
 
 ```
 
-$form = $container['wwp.forms.form'];
+$form = $container['wwp.form.form'];
 
 //Add your first Field
 $f1 = new InputField('login','',['label'=>__('username',TEXTDOMAIN)],[Validator::notEmpty()]);
