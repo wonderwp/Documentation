@@ -41,7 +41,7 @@ class MyPluginCustomService extends AbstractService
 This takes place in the manager, referenced as `$this` in the following snippet.
 
 ```
-$this->addService(AbstractService::$HOOKSERVICENAME,$container->factory(function(){
+$this->addService(ServiceInterface::HOOK_SERVICE_NAME,$container->factory(function(){
 	//My Plugin Hook service
    return new MyPluginHookService($this); //Pass $this in the constructor if you want to access the manager inside your service.
 }));

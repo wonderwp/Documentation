@@ -45,7 +45,7 @@ Add these few lines inside your plugin manager.
 
 ```
 //Shortcode
-$this->addService(AbstractService::$SHORTCODESERVICENAME, function(){
+$this->addService(ServiceInterface::SHORT_CODE_SERVICE_NAME, function(){
     return new MyPLuginShortcodeService();
 });
 ```
