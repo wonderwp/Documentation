@@ -20,7 +20,7 @@ Add these few lines inside your plugin manager.
 
 ```
 //Api
-$this->addService(AbstractService::$APISERVICENAME, function(){
+$this->addService(ServiceInterface::API_SERVICE_NAME, function(){
     return new MyPLuginApiService();
 });
 ```
@@ -85,60 +85,55 @@ Supposed we want this endpoint `https://domain.test/wp-json/questions/v1/questio
 - **args** : corresponding to third parameter of `register_rest_route` function : [doc](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/#arguments)
 
 ```php
+<?php
 
- class QuestionApiService extends AbstractApiService
+namespace WonderWp\Plugin\Translator\Service;
+
+use WonderWp\Component\API\AbstractApiService;
+use WonderWp\Component\API\Annotation\WPApiEndpoint;
+use WonderWp\Component\API\Annotation\WPApiNamespace;
+use WP_REST_Request;
+use WP_REST_Response;
+
+/**
+ * @WPApiNamespace(
+ *     namespace="wwp-translator"
+ * )
+ */
+class TranslatorApiService extends AbstractApiService
 {
     /**
      * @WPApiEndpoint(
-     *     namespace = "questions",
-     *     version = "v1",
-     *     url = "/questions-by-user",
+     *     url = "/i18n",
      *     args = {
-    *       "methods": "GET",
-    *       "args": {
-    *           "page": {
-    *               "default": 1,
-    *               "sanitize_callback": "convertToInt"
-    *           },
-    *           "limit": {
-    *               "default": 1,
-    *               "sanitize_callback": "convertToInt"
-    *           }
-    *       },
-    *       "permission_callback": "canFetchQuestions"
-    *     }
+     *       "methods": "GET",
+     *       "args": {
+     *           "locale",
+     *           "namespace"
+     *       }
+     *     }
      * )
+     * Url of this endpoint will be wp-json/{wpApiNamespace}/v1/{WPApiEndpoint.url}
+     * Which means in this case : /wp-json/wwp-translator/v1/i18n
      */
-    public function questionsByUser(WP_REST_Request $request)
+    public function i18n(WP_REST_Request $request)
     {
-        $page = $request->get_param('page');
-
-        /* Processing get questions */
-
-        // To handle error we can return WP_Error instance
-        return WP_Error('error_code', 'Error message', ['status' => 400]);
-
-        // Or success response
+        //Get variables needed
+        $locale    = $request->get_param('locale');
+        $namespace = $request->get_param('namespace');
+        
+        //Delegate treatments to services
+        $readResult = $this->manager->getService('jsonPersister')->getJsonData($locale, $namespace);
+        
+        //Show computed result via rest response
         return new WP_REST_Response([
-            'questions' => [],
+            $readResult
         ]);
-    }
-
-    public function canFetchQuestions(WP_REST_Request $request)
-    {
-        $user = wp_get_current_user();
-
-        /* processing verification */
-
-        return true;
-    }
-
-    public function convertToInt($param, $request, $key)
-    {
-        /* Processing sanitize method */
-        return (int) $param;
+        
+        //This should be visible at /wp-json/wwp-translator/v1/i18n
     }
 }
+
 ```
 
 The namespace could be define globaly.
@@ -167,7 +162,9 @@ class QuestionApiService extends AbstractApiService
     }
 
     public function canDeleteQuestion()
-    {}
+    {
+        //logic to tell if the person can delete questions or not
+    }
 }
 ```
 
