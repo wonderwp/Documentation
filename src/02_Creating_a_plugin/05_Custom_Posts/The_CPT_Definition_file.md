@@ -149,3 +149,49 @@ class CaseStudyCpt extends CustomPostType
     }    
 ```
 
+## Using multiple slugs for CPT rewrite rules
+
+When declaring a CPT, in WordPress there's
+a [rewrite](https://developer.wordpress.org/reference/functions/register_post_type/#rewrite) option attribute :
+
+```
+class ActuCPT extends CustomPostType
+{
+    const localeMeta  = 'news_locale';
+    const listImgMeta = 'news_list_img';
+
+    public function __construct($name = '', array $passed_opts = [], $taxonomy_name = '', array $passed_taxonomy_opts = [])
+    {
+        $name = !empty($name) ? $name : WWP_PLUGIN_ACTU_NAME;
+
+        $defaultOpts = [
+            'rewrite'             => ['slug' => 'news'],
+        ];
+        $opts        = array_merge_recursive_distinct($defaultOpts, $passed_opts);
+
+        parent::__construct($name, $opts, $taxonomy_name, $passed_taxonomy_opts);
+    }
+```
+
+In WonderWp, you can specify an array for this rewrite value, and custom post pages will be available on all of them.
+
+This is useful for multilingual needs, for example :
+
+```
+class ActuCPT extends CustomPostType
+{
+    const localeMeta  = 'news_locale';
+    const listImgMeta = 'news_list_img';
+
+    public function __construct($name = '', array $passed_opts = [], $taxonomy_name = '', array $passed_taxonomy_opts = [])
+    {
+        $name = !empty($name) ? $name : WWP_PLUGIN_ACTU_NAME;
+
+        $defaultOpts = [
+            'rewrite'             => ['slug' => ['news','actualites','anotherslug']],
+        ];
+        $opts        = array_merge_recursive_distinct($defaultOpts, $passed_opts);
+
+        parent::__construct($name, $opts, $taxonomy_name, $passed_taxonomy_opts);
+    }
+```
