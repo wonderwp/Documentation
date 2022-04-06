@@ -138,7 +138,7 @@ class CaseStudyCpt extends CustomPostType
     //Because for select fields we need to specify options. 
     public function getSelectTest($metaKey, $savedMetaValue)
     {
-        $select = new NumericField($metaKey,$savedMetaValue,['label' => 'Year of completion']);
+        $select = new SelectField($metaKey,$savedMetaValue,['label' => 'Year of completion']);
         $select->setOptions([
             ''=>'Choose a value',
             1=>'First Value',
