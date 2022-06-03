@@ -7,7 +7,10 @@ The good thing with a generator besides the fact that is makes you **gain time**
 ## How to generate a plugin? 
 
 WonderWp provides a wp-cli command to help you generate your plugin skeleton.
-It's the `generate-plugin` command and you can invoke it like so :
+
+wp-cli must be installed. If it's not installed on your project, you can install it like this : `composer require wp-cli/wp-cli`
+
+Then you can use the generator command `generate-plugin` which you can invoke like so :
 
 ```
 vendor/bin/wp generate-plugin --name="myPluginName" --desc="This is my plugin description" --namespace="WonderWp\Plugin\MyPluginNameSpace"
@@ -45,5 +48,5 @@ vendor/bin/wp generate-plugin --name="myPluginName" --desc="This is my plugin de
 #### Generating a Custom Post Type plugin 
 
 ```
-vendor/bin/wp wp generate-plugin --name="myPluginCPTName" --desc="This is my CPT plugin description" --namespace="WonderWp\Plugin\MyPluginCPTNameSpace" --output_type="CPT"
+vendor/bin/wp generate-plugin --name="myPluginCPTName" --desc="This is my CPT plugin description" --namespace="WonderWp\Plugin\MyPluginCPTNameSpace" --output_type="CPT"
 ```

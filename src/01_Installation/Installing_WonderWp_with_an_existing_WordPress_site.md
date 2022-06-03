@@ -1,11 +1,11 @@
-# Installation
+# Installing WonderWp on an existing WordPress install 
 
-## 1) Prepare your WordPress install for Composer
+## 1) Prepare your existing WordPress install for Composer
 
-### 1.1) Your composer.json file
-WonderWp relies on composer to run properly. We'll therefore make sure that your WordPress install has a correct composer.json file that will hold the composer configuration.
+### 1.1) Check your composer.json file
+WonderWp relies on composer to run properly. We'll therefore make sure that your WordPress install is able to run composer by checking if it has a correct composer.json file that holds the composer configuration.
 
-- If you don't have a composer.json file already, reate one manually at the root of your project with the following content :
+- If you don't have a composer.json file already, create one manually at the root of your project with the following content :
 
 ```
 {
@@ -28,7 +28,7 @@ WonderWp relies on composer to run properly. We'll therefore make sure that your
 }
 ``` 
 
-Don't forget to replace yourauthorname and yourprojectname by your own values.
+Don't forget to replace `yourauthorname/yourprojectname` by your own values.
 
 - If you do have one already, what's important is to add the **extra** section to yours. 
 
@@ -36,7 +36,7 @@ Please adjust the folder paths to match your own installation if necessary.
 
 ### 1.2) composer installer
 
-Require the composer/installer package by this command in your terminal : 
+Type this command to require the composer/installer package : 
 
 ```
 composer require composer/installers
@@ -97,3 +97,6 @@ In your mu-plugins folder, you should then have at least the three following thi
 If your must use plugins work properly, you should see a dedicated section in your admin area (under plugins). Usually located at /wp-admin/plugins.php?plugin_status=mustuse
 
 There you should see a list table of active must use plugins, and among this lit, you should see WonderWp.
+
+If that's the case, your install should be ready to run with full modern development capabilities.
+It's now time to [create your first plugin](../02_Creating_a_plugin/01_Getting_Started.md).
