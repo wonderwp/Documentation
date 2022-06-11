@@ -14,14 +14,14 @@ Create a class that extends the `AbstractRouteService` class. The `AbstractRoute
 class MyPluginRouteService extends AbstractRouteService
 {
     public function getRoutes(){
-        if(empty($this->_routes)) {
-            $manager = Container::getInstance()->offsetGet('wwp-recette.Manager'); //Here we get the plugin manager to access the plugin controller, which will be used as a callable object.
-            $this->_routes = array(
+        if(empty($this->routes)) {
+            $manager = $this->manager; //Here we get the plugin manager to access the plugin controller, which will be used as a callable object.
+            $this->routes = array(
                 ['(.*)/arome/{arome}/typeplat/{typeplat}/instant/{instant}/pageno/{pageno}','index.php?pagename=$matches[1]&arome=$matches[2]&typeplat=$matches[3]&instant=$matches[4]&pageno=$matches[5]','GET'], //example of a route that maps a url to a file
                 ['recette/resetfilters/{previousRecettePageId}',array($manager->getController(AbstractManager::$PUBLICCONTROLLERTYPE),'resetFilters'),'GET'] //example of a route that maps a url to a callable
         }
 
-        return $this->_routes;
+        return $this->routes;
     }
 }
 ```
