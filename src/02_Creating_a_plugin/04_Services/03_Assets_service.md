@@ -11,26 +11,25 @@ class MyPluginAssetService extends AbstractAssetService
 {
 	public function getAssets(){
 		//Register your assets from there
-        if(empty($this->_assets)) {
-            $container = Container::getInstance();
-            $manager = $container->offsetGet('wwp-recette.Manager');
+        if(empty($this->assets)) {
+            $manager    = $this->manager;
             $pluginPath = $manager->getConfig('path.url');
-            $assetClass = $container->offsetGet('wwp.assets.assetClass');
-            $this->_assets = array(
+            $assetGroup = 'plugins';
+            /** @var Asset $assetClass */
+            $assetClass   = self::$assetClassName;
+            
+            $this->assets = array(
                 'css' => array(
                     new $assetClass('wwp-recette-admin', $pluginPath . '/admin/css/recette.scss', array('styleguide'), null, false, AbstractAssetService::$ADMINASSETSGROUP),
-                    new $assetClass('wwp-recette-list', $pluginPath . '/public/css/recipeslist.scss', array('styleguide')),
-                    new $assetClass('wwp-recette', $pluginPath . '/public/css/recipe.scss', array('styleguide'))
+                    new $assetClass('wwp-recette', $pluginPath . '/public/css/recipe.scss', array('styleguide'), null, false, $assetGroup)
                 ),
                 'js' => array(
                     new $assetClass('wwp-recette-admin', $pluginPath . '/admin/js/recette.js', array('jquery-chosen'), null, false, AbstractAssetService::$ADMINASSETSGROUP),
-                    new $assetClass('wwp-ingredient-admin', $pluginPath . '/admin/js/ingredient.js', array(), null, false, AbstractAssetService::$ADMINASSETSGROUP),
-                    new $assetClass('wwp-recette', $pluginPath . '/public/js/recette.js', array('app','styleguide')),
-                    new $assetClass('wwp-recette-list', $pluginPath . '/public/js/recette-list.js', array('app','styleguide')),
+                    new $assetClass('wwp-recette', $pluginPath . '/public/js/recette.js', array('app','styleguide'), null, true, $assetGroup)
                 )
             );
         }
-        return $this->_assets;		
+        return $this->assets;		
 	}
 }
 ```
