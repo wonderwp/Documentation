@@ -34,3 +34,13 @@ jobs:
           remote_user: ${{ secrets.DEPLOY_USERNAME }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
           path: /doc/*
+
+      - name: Notify Slack
+        uses: rtCamp/action-slack-notify@v2.1.0
+        with:
+          status: ${{ job.status }}
+          slack_domain: 'wdf-team'
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channel: '#jenkins'
+          author_name: 'Won'
+          message: "Documentation build status : ${{ job.status }}"
