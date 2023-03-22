@@ -39,8 +39,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.1.0
         with:
           status: ${{ job.status }}
-          slack_domain: 'wdf-team'
-          slack_token: ${{ secrets.SLACK_TOKEN }}
+          slack_webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: '#jenkins'
           author_name: 'Won'
           message: "Documentation build status : ${{ job.status }}"
