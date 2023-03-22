@@ -43,4 +43,4 @@ jobs:
           #SLACK_ICON : https://avatars.slack-edge.com/2017-08-16/226685234736_8284433bd58b492ed49b_512.jpg
           SLACK_MESSAGE: "Documentation build status : ${{ job.status }}"
           SLACK_USERNAME: Won
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
