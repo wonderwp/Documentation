@@ -28,7 +28,7 @@ jobs:
       - name: Rsync to Distant Environment
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -uvrn --delete
+          switches: -uvrn --delete --exclude-from="./CI/exclude-file.txt"
           remote_path: /kunden/homepages/3/d383283311/htdocs/Subdomains/wonderwpdoc
           remote_host: ${{ secrets.DEPLOY_HOSTNAME }}
           remote_user: ${{ secrets.DEPLOY_USERNAME }}
