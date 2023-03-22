@@ -26,7 +26,7 @@ jobs:
           vendor/bin/daux generate --source=src/ --destination=doc --delete
       
       - name: Rsync to Distant Environment
-        uses: burnett01/rsync-deployments@v1
+        uses: burnett01/rsync-deployments@4.1
         with:
           switches: -uvrn --delete
           remote_path: /kunden/homepages/3/d383283311/htdocs/Subdomains/wonderwpdoc
