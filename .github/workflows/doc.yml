@@ -32,5 +32,5 @@ jobs:
           remote_path: /kunden/homepages/3/d383283311/htdocs/Subdomains/wonderwpdoc
           remote_host: ${{ secrets.DEPLOY_HOSTNAME }}
           remote_user: ${{ secrets.DEPLOY_USERNAME }}
-          ssh_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
           local_path: ./doc
