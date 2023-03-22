@@ -1,0 +1,12 @@
+## File Types
+- .svn
+- .git
+- .DS_Store
+- .htaccess
+- .htpasswd
+- .gitignore
+- .bitbucket
+- *.nfs*
+- *.scss
+- .gitkeep
+- .env
