@@ -1,0 +1,36 @@
+name: Documentation Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Use PHP 7.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+      
+      - name: Install Dependencies
+        run: |
+          composer install
+      
+      - name: Generate Documentation
+        run: |
+          vendor/bin/daux generate --source=src/ --destination=doc --delete
+      
+      - name: Rsync to Distant Environment
+        uses: burnett01/rsync-deployments@v1
+        with:
+          switches: -uvrn --delete
+          remote_path: /kunden/homepages/3/d383283311/htdocs/Subdomains/wonderwpdoc
+          remote_host: ${{ secrets.DEPLOY_HOSTNAME }}
+          remote_user: ${{ secrets.DEPLOY_USERNAME }}
+          ssh_key: ${{ secrets.DEPLOY_KEY }}
+          local_path: ./doc
