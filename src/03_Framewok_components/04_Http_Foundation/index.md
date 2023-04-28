@@ -25,3 +25,16 @@ public function myControllerAction(){
 	$testGet = $this->request->query->get('test');
 }
 ```
+
+The request is also available as a singleton that can be retrieved like this : 
+
+```
+$request = \WonderWp\Component\HttpFoundation\Request::getInstance();
+```
+
+It is also available as a service in the container under the `wwp.http.request` key.
+
+```
+$container = Container::getInstance();
+$request = $container['wwp.http.request'];
+```
