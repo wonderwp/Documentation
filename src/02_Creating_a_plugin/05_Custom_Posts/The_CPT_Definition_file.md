@@ -149,6 +149,57 @@ class CaseStudyCpt extends CustomPostType
     }    
 ```
 
+### Using custom fields in the admin
+
+#### Using php panels
+
+WonderWp can register your panels automatically.
+
+To do so, add these lines to you hook service (usually they are generated for you by the CPT generator) : 
+
+```
+//This is your CPT declaration object.
+$cpt = $this->manager->getConfig('cpt');
+
+//CustomPostTypeService is the CPT service that interacts with your CPT instance.
+//It is by default a WonderWp object.
+//If you use your own CPT service, make sure it extends CustomPostTypeService or implements the createMetasForm and saveMetasForm methods.
+
+/** @var CustomPostTypeService $cptService */
+$cptService = $this->manager->getService(ServiceInterface::CUSTOM_POST_TYPE_SERVICE_NAME);
+if(!empty($cpt->getMetaDefinitions())){
+	//This automatically creates panel forms based on your meta definitions
+    add_action('admin_init', [$cptService, 'createMetasForm']);
+    //This automtically saves the posted values
+    add_action('save_post', [$cptService, 'saveMetasForm'], 10, 2);
+}
+```
+
+#### Using Gutenberg
+
+You can manipulate your post metas via Gutenberg AdminPanels or custom sidebars.
+
+To do so, you metas need to be registered with the Rest API.
+
+WonderWp can register them automatically.
+
+To do so, add these lines to you hook service : 
+
+```
+//This is your CPT declaration object.
+$myCpt = $this->manager->getConfig('cpt');
+
+//CustomPostTypeService is the CPT service that interacts with your CPT instance.
+//It is by default a WonderWp object.
+//If you use your own CPT service, make sure it extends CustomPostTypeService or implements the makeMetasAvailableInRestApi method.
+
+/** @var CustomPostTypeService $cptService */
+$cptService = $this->manager->getService(ServiceInterface::CUSTOM_POST_TYPE_SERVICE_NAME);
+if (!empty($cpt->getMetaDefinitions())) {
+    $this->addAction('init', [$cptService, 'makeMetasAvailableInRestApi']);
+}
+```
+
 ## Using multiple slugs for CPT rewrite rules
 
 When declaring a CPT, in WordPress there's
