@@ -71,7 +71,7 @@ pipeline {
         	defineVariables();
 
             if(env.runComposer=='true'){
-	            sh '/usr/bin/php7.4 /usr/local/bin/composer install --prefer-dist';
+	            sh '/usr/bin/php8.3 /usr/local/bin/composer install --prefer-dist';
 	        } else {
 	        	echo 'skipped composer install';
 	        }
