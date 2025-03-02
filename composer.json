@@ -1,0 +1,22 @@
+{
+  "name": "wonderwp/documentation",
+  "description": "WonderWp Documentation",
+  "type": "library",
+  "keywords": ["documentation", "doc", "WonderWp", "WordPress"],
+  "homepage": "https://github.com/wonderwp/documentation",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jeremy Desvaux",
+      "homepage": "https://jdmweb.com"
+    },
+    {
+      "name": "WonderWp Community",
+      "homepage": "http://wonderwp.net/Contribution/Contributors.html"
+    }
+  ],
+  "require": {
+    "php": ">=8.0"
+  },
+  "minimum-stability": "dev"
+}
