@@ -8,7 +8,7 @@ As you can see, it could be quite complex to get it right and efficient all the 
 
 ## The Router
 
-The router's job is to gather your custom routes, then feed them to the WordPress routing hooks so you don't have to. 
+The router's job is to gather your custom routes, then feed them to the WordPress routing hooks so you don't have to.
 
 The router is the central object that register the crucial hooks concerned about routing by default, and branches them on its own protected methods.
 
@@ -18,4 +18,4 @@ The router then asks each routing service it knows for custom routes, and takes 
 
 ## Declaring custom routes
 
-There's a [dedicated section](../../02_Creating_a_plugin/04_Services/02_Route_service.md) in the documentation for this that we encourage you to read beacause that's where you'll see how to declare your own routes.
+There's a [dedicated section](../../02_Plugin_development/04_Services/02_Route_service.md) in the documentation for this that we encourage you to read beacause that's where you'll see how to declare your own routes.

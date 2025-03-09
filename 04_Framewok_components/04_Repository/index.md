@@ -6,7 +6,7 @@ The `PostRepository` class implements the given `RepositoryInterface`, which pro
 
 ## How to use the repository in your controller?
 
-The best way is to register a reference of the repository inside your manager : 
+The best way is to register a reference of the repository inside your manager :
 
 ```
 public function register(Container $container)
@@ -40,8 +40,8 @@ public function myControllerAction(){
 }
 ```
 
-Some other interesting things with this approach is that in definitive, there's no WordPress specific procedural code in this method, and also, the repository is injected, no instanciated directly. 
+Some other interesting things with this approach is that in definitive, there's no WordPress specific procedural code in this method, and also, the repository is injected, no instanciated directly.
 
 That means that you could write another `RepositoryInterface`implementation in place of the `PostRepository` class. Even one that is not a WordPress one at all, for third party api calls for example. And that without touching anything else than the line that registers the service in the manager.
 
-When using the generator to generate a Custom Post Type plugin, a repository is generated for this specific CPT. You can have more information on the [CPT page](../../02_Creating_a_plugin/05_Custom_Posts/index.md#page_The_repository).
+When using the generator to generate a Custom Post Type plugin, a repository is generated for this specific CPT. You can have more information on the [CPT page](../../02_Plugin_development/05_Custom_Posts/index.md#page_The_repository).
