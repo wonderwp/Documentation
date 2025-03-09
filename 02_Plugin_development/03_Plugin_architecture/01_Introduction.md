@@ -12,4 +12,3 @@ In this chapter you'll learn how WonderWp's plugin philosophy can help you build
 - [The bootstrap file](./03_Plugin_bootstrap_file.md)
 - [The plugin manager](./04_Plugin_Manager.md)
 - [Services](../04_Services)
-- [Controllers & views](./05_Public_controller.md)
