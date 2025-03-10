@@ -1,100 +1,144 @@
 # Installing WonderWp on an existing WordPress install
 
-## 1) Prepare your existing WordPress install for Composer
+## Installing WonderWP on an Existing WordPress Install
 
-### 1.1) Check your composer.json file
+WonderWP relies on **Composer** to run properly. This guide will walk you through **setting up Composer in WordPress** and **installing WonderWP** step by step.
 
-WonderWp relies on composer to run properly. We'll therefore make sure that your WordPress install is able to run composer by checking if it has a correct composer.json file that holds the composer configuration.
+***
 
-* If you don't have a composer.json file already, create one manually at the root of your project with the following content :
+### 1️⃣ Prepare Your WordPress Install for Composer
 
-```
+#### **1.1 Check Your `composer.json` File**
+
+To ensure your WordPress site supports Composer, you need a valid **`composer.json`** file in your project root.
+
+If you don’t already have one, create it manually with the following content:
+
+```json
 {
-	"name":"yourauthorname/yourprojectname",
-	"description":"Testing a WordPress project with wonderwp capabilities",
-	"extra": {
-		"installer-paths": {
-			"wp-content\/mu-plugins\/{$name}\/": [
-				"type:wordpress-muplugin"
-			],
-			"wp-content\/plugins\/{$name}\/": [
-				"type:wordpress-plugin"
-			],
-			"wp-content\/themes\/{$name}\/": [
-				"type:wordpress-theme"
-			]
-		},
-		"wordpress-install-dir": "/"
-	}
+    "name": "yourauthorname/yourprojectname",
+    "description": "Testing a WordPress project with WonderWP capabilities",
+    "extra": {
+        "installer-paths": {
+            "wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "/"
+    }
 }
 ```
 
-Don't forget to replace `yourauthorname/yourprojectname` by your own values.
 
-* If you do have one already, what's important is to add the **extra** section to yours.
 
-Please adjust the folder paths to match your own installation if necessary.
+🔹 **Replace** `"yourauthorname/yourprojectname"` with your actual values.\
+🔹 If you already have a **`composer.json`**, ensure the **`extra`** section is included and adjust paths as needed.
 
-### 1.2) composer installer
+***
 
-Type this command to require the composer/installer package :
+#### **1.2 Install Composer Dependencies**
 
-```
+To ensure Composer can handle WordPress installations correctly, install the **Composer Installers package**:
+
+```bash
 composer require composer/installers
 ```
 
-### 1.3) Composer is ready
 
-After those two steps, composer knows where your WordPress instance is located, and where it needs to install the packages it gets from its packagist mirror.
 
-You are now ready to install vendors, WordPress plugins, themes and must use plugins via composer.
+***
 
-## 2) Require WonderWp
+#### **1.3 Verify Composer is Ready**
 
-WonderWp is a composer package, you can get it like this:
+After these steps, Composer should:\
+✅ **Recognize your WordPress installation directory.**\
+✅ **Know where to install themes, plugins, and must-use plugins.**
 
-```
+At this point, you can start managing dependencies through Composer.
+
+***
+
+### 2️⃣ Install WonderWP
+
+WonderWP is available as a **Composer package**. To install it, run:
+
+```bash
 composer require wonderwp/wonderwp
 ```
 
-After the command finished running, you should have the following folders :
+#### **Expected Outcome**
 
-* A wonderwp folder inside your vendors folder (vendor/wonderwp by default)
-* An autoload-wwp folder in your must use plugins folder (wp-content/mu-plugins/autoload-wwp by default)
-* An generator-wwp folder in your must use plugins folder (wp-content/mu-plugins/generator-wwp by default)
-
-If that's not the case you might have a problem with your composer configuration (especially the installer paths).
-
-## 3) Initialize WonderWp
-
-To be initialized, the WonderWp Framework loader should be called. By default, WonderWp does so via its must use plugin called autoload-wwp.
-
-The problem is that according to the must use plugins doc at the time of writing :
-
-"WordPress only looks for PHP files right inside the mu-plugins directory, and (unlike for normal plugins) not for files in subdirectories. You may want to create a proxy PHP loader file inside the mu-plugins directory"
-
-We've created such proxy file for you. It's called `wonderwp-mu-proxy.php` and it's inside the `mu-plugins/autoload-wwp` folder.\
-Copy it, then paste it in the `mu-plugins` folder directly (in other words one level above its original position).
-
-On a default WordPress install, you can do it with your terminal with the following command :
+After installation, you should see the following folders in your project:
 
 ```
+vendor/wonderwp/               # WonderWP package inside vendor
+wp-content/mu-plugins/autoload-wwp/   # WonderWP autoload plugin
+wp-content/mu-plugins/generator-wwp/  # WonderWP generator plugin
+```
+
+
+
+⚠️ **If these folders are missing**, check your **Composer configuration**, especially the **installer paths** in `composer.json`.
+
+***
+
+### 3️⃣ Initialize WonderWP
+
+#### **Ensure the Framework Loader is Called**
+
+By default, WonderWP initializes via its **autoload-wwp** must-use plugin. However, due to a WordPress limitation:
+
+> “WordPress only looks for PHP files directly inside the `mu-plugins` directory and not inside subdirectories.”
+
+To work around this, we provide a **proxy loader file** called:
+
+```
+wp-content/mu-plugins/autoload-wwp/wonderwp-mu-proxy.php
+```
+
+#### **Move the Proxy File**
+
+Copy the proxy file to the `mu-plugins` directory to ensure WonderWP loads correctly:
+
+```bash
 cp wp-content/mu-plugins/autoload-wwp/wonderwp-mu-proxy.php wp-content/mu-plugins/
 ```
 
-In your mu-plugins folder, you should then have at least the three following things :
+#### **Your `mu-plugins` Folder Should Contain:**
 
 ```
-- mu-plugins/
-    - autoload-wwp/
-    - generator-wwp/
-    - wonderwp-mu-proxy.php
+wp-content/mu-plugins/
+  ├── autoload-wwp/
+  ├── generator-wwp/
+  ├── wonderwp-mu-proxy.php  # Proxy file now in the correct location
 ```
 
-## Testing if WonderWp is properly loaded
 
-If your must use plugins work properly, you should see a dedicated section in your admin area (under plugins). Usually located at /wp-admin/plugins.php?plugin\_status=mustuse
 
-There you should see a list table of active must use plugins, and among this lit, you should see WonderWp.
+***
 
-If that's the case, your install should be ready to run with full modern development capabilities. It's now time to [create your first plugin](../02_Plugin_development/01_Getting_Started.md).
+### 4️⃣ Verify Your Installation
+
+To confirm WonderWP is properly loaded:
+
+1️⃣ **Go to your WordPress Admin Panel**\
+2️⃣ **Navigate to:** `Plugins → Must Use`\
+3️⃣ **Check if "WonderWP" appears in the list**
+
+📌 If WonderWP is listed, your installation is complete! 🎉
+
+***
+
+### 🎯 Next Steps
+
+✅ **Create Your First Plugin →**\
+✅ **Explore WonderWP’s Features →**\
+✅ **Join the Community →**
+
+You're now ready to build with WonderWP! 🚀

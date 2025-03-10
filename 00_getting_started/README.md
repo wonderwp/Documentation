@@ -1,37 +1,75 @@
 # Getting started with WonderWp
 
-## 1) Install WonderWp
+Follow these steps to set up WonderWP, generate your first plugin, and start building efficiently.
 
-The installation guide is documented in the [installation page](../src/01_Installation/).
+***
 
-## 2) Generate your first plugin
+### 1️⃣ Install WonderWp
 
-Using the generator to build a first plugin is a good way to start learning how WonderWp encourages you to organize a plugin.
+To install the framework, follow the **installation guide** for step-by-step instructions.
 
-This could be a good introduction to WonderWp plugin principles without worrying of building and learning in parallel.
+[📌 **Installing the framework on an existing WordPress install**](installing_wonderwp_with_an_existing_wordpress_site.md)\
+[**📌 Installing WordPress, Bedrock, & WonderWp from scratch with CLI**](installing_wordpress_bedrock_and_wonderwp_from_scratch.md)
 
-WonderWp can build the plugin structure for you to help you focus on learning the basics.
+***
 
-The generator documentation is available [on this page](../02_Plugin_development/02_Generator.md)
+### 2️⃣ Generate Your First Plugin
 
-## 3) Learn more about your plugin
+The best way to start with WonderWP is by **generating a new plugin** using the CLI.
 
-Once you've got a generated base, head over to the [plugin architecture](../src/02_Creating_a_plugin/03_Plugin_architecture/) documentation to discover how to work your way around it.
+✅ **Quickly scaffold a structured plugin** without starting from scratch.\
+✅ **Learn WonderWP’s architecture** in a hands-on way.\
+✅ **Focus on development** instead of boilerplate setup.
 
-## 4) Learn more about the framework components and capabilities
+📌 [**Learn how to generate a plugin →**](../02_Plugin_development/02_Generator.md#how-to-generate-a-plugin)
 
-Once you've gotten your head around the basics, it's time to learn some more advances topics to truly feel the framework potential.
+***
 
-Here's the link to the [framework components](../src/03_Framewok_components/) documentation, where you'll find out more about dependency injection, routing, logging, and so on.
+### 3️⃣ Explore Your Plugin Structure
 
-## 5) Keep on building
+Once your plugin is generated, take a moment to explore its structure.
 
-You're all set to express your full potential. We wish you the most pleasant development experience.
+🔹 **WonderWP follows a modular architecture**, making it easy to navigate and extend.\
+🔹 Understanding the **plugin folder structure, component system, and best practices** will help you work efficiently.
 
-## 6) Contribute if you'd like
+📌 [**Read the Plugin Architecture Guide →**](../02_Plugin_development/03_Plugin_architecture/02_File_architecture.md)
 
-WonderWp is an open source framework, which means anyone can contribute.
+***
 
-If you've spotted a bug, would like to add some features, or add some tests for example, head up to the [contribution page](../05_Contribution/02_Contributing.md) to get contribution instructions.
+### 4️⃣ Learn About Framework Components
 
-Thank you for your help.
+Now that you're familiar with the basics, it’s time to explore **WonderWP’s core components**:
+
+✅ **Dependency Injection** – Manage services efficiently.\
+✅ **Routing System** – Handle requests the modern way.\
+✅ **Logging, Caching, CLI, and More** – Powerful built-in tools for development.
+
+📌 [**Discover Framework Components →**](../04_framewok_components/)
+
+***
+
+### 5️⃣ Keep Building 🚀
+
+You're now equipped to **build efficiently with WonderWP**.
+
+✅ **Leverage automation** to speed up development.\
+✅ **Follow best practices** to create structured, maintainable plugins.\
+✅ **Explore advanced features** to push your projects further.
+
+Enjoy your development journey with WonderWP!
+
+***
+
+### 6️⃣ Contribute to WonderWP
+
+WonderWP is **open-source**, meaning **you can contribute**!
+
+✅ Found a **bug**? Help report and fix it.\
+✅ Have an **idea for a feature**? Share your proposal.\
+✅ Want to improve the **tests or documentation**? Your help is appreciated.
+
+📌 [**Read the Contribution Guide →**](../05_Contribution/02_Contributing.md)
+
+Thank you for helping improve WonderWP! 💙
+
+***
