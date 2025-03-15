@@ -30,6 +30,14 @@ wp wonderwp generate taxonomy
 
 This will create a structured **Taxonomy class**, already detected and managed by WonderWP.
 
+As it is a wp-cli command, you can call the help command to get more information about the `generate taxonomy` command  :&#x20;
+
+```bash
+wp help wonderwp generate taxonomy
+```
+
+It will list you the parameters you can use and how you can use them.
+
 ***
 
 ## 🤖 Using AI Rules
