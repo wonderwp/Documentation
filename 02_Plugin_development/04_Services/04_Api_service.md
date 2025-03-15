@@ -5,6 +5,7 @@ Defining ajax entry points for your plugin can feel a bit messy in a sense that 
 The idea behind the Api Service is to provide a class that will act as an API controller to gather all the API logic, and that can be used to abstract and ease ajax endpoints registration.
 
 ## How to create an Api Service
+
 Create a class that extends the `AbstractApiService` class. The `AbstractApiService` class implements the `ApiServiceInterface`.
 
 ```
@@ -13,9 +14,11 @@ class MyPluginApiService extends AbstractApiService
 	//All the public methods defined in this service can be used as an ajax endpoint
 }
 ```
+
 All the public methods defined in this service can be used as an ajax endpoint! No more hook definition, you just create the API service, and then declare public methods in it. Those methods can now be accessed via JavaScript calls.
 
 ## Registering the Api Service
+
 Add these few lines inside your plugin manager.
 
 ```
@@ -48,7 +51,7 @@ $.post(
 );
 ```
 
-In this call, pass some object parameters. This object should contain an action key, whose val should be the name of your api service class, then a '.', then the method you'd like to call. 
+In this call, pass some object parameters. This object should contain an action key, whose val should be the name of your api service class, then a '.', then the method you'd like to call.
 
 You can also define som more parameters that will be passed to the service's method.
 
@@ -79,10 +82,11 @@ It's also possible to use your API service to make its methods available via the
 Based on https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/
 
 Supposed we want this endpoint `https://domain.test/wp-json/questions/v1/questions-by-user?page=1` the annotation would be :
-- **namespace** : corresponding `questions`
-- **version** : corresponding to `v1`, we can maintain different api version by incrementing the version and keeping the same endpoint url (default to `v1`)
-- **url** : corresponding to `questions-by-user`, can include dynamic parameters according to wordpress documentation (example `/author/(?P<id>\d+)`)
-- **args** : corresponding to third parameter of `register_rest_route` function : [doc](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/#arguments)
+
+* **namespace** : corresponding `questions`
+* **version** : corresponding to `v1`, we can maintain different api version by incrementing the version and keeping the same endpoint url (default to `v1`)
+* **url** : corresponding to `questions-by-user`, can include dynamic parameters according to wordpress documentation (example `/author/(?P<id>\d+)`)
+* **args** : corresponding to third parameter of `register_rest_route` function : [doc](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/#arguments)
 
 ```php
 <?php
@@ -136,8 +140,7 @@ class TranslatorApiService extends AbstractApiService
 
 ```
 
-The namespace could be define globaly.
-For example to create this endpoint `https://domain.test/wp-json/questions/v1/delete-question/1`
+The namespace could be define globaly. For example to create this endpoint `https://domain.test/wp-json/questions/v1/delete-question/1`
 
 ```php
 /**
@@ -170,9 +173,7 @@ class QuestionApiService extends AbstractApiService
 
 ### Important notice
 
-Because we cannot reference `$this` from within an annotation, for any callback function specified inside a @WPApiEndpoint annotation, be it `sanitize_callback`, `validate_callback`, `permission_callback` and so on, the provided callback name (for example `myFunction`), is first looked for on the same class instance than the method carrying out the annotation. If not found there, it's then looked for on the global namespace (like a function name)
-In second time, we look for a global function.
-
+Because we cannot reference `$this` from within an annotation, for any callback function specified inside a @WPApiEndpoint annotation, be it `sanitize_callback`, `validate_callback`, `permission_callback` and so on, the provided callback name (for example `myFunction`), is first looked for on the same class instance than the method carrying out the annotation. If not found there, it's then looked for on the global namespace (like a function name) In second time, we look for a global function.
 
 Here's another example :
 

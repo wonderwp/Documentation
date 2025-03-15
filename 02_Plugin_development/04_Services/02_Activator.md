@@ -1,4 +1,4 @@
-# Plugin Activator 
+# Plugin Activator
 
 Create a class that extends `AbstractPluginActivator` or implements the `ActivatorInterface`
 
@@ -17,10 +17,11 @@ class RecetteActivator extends AbstractPluginActivator
     }
 }
 ```
-What's inside the activate method will be executed upon plugin activation
-Here you could for example create a table for your plugin, define options, copy default language files...
+
+What's inside the activate method will be executed upon plugin activation Here you could for example create a table for your plugin, define options, copy default language files...
 
 ## Registering the activator service
+
 Now that your activator service is ready, add these few lines inside your plugin manager to let him now about it.
 
 ```
@@ -30,7 +31,7 @@ $this->addService(ServiceInterface::ACTIVATOR_NAME, function () {
 });
 ```
 
-Also, make sure the following lines are present in your plugin [bootstrap file](../03_Plugin_architecture/03_Plugin_bootstrap_file.md) : 
+Also, make sure the following lines are present in your plugin [bootstrap file](../03_Plugin_architecture/03_Plugin_bootstrap_file.md) :
 
 ```
 /**

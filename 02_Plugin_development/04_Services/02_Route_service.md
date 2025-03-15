@@ -40,4 +40,4 @@ $this->addService(ServiceInterface::ROUTE_SERVICE_NAME,function(){
 
 ## More on routes
 
-See the [dedicated doc section](../../04_Framewok_components/03_Routing/index.md).
+See the [dedicated doc section](../../04_framewok_components/index-2.md).

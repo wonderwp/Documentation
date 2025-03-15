@@ -37,7 +37,7 @@ $renderOpts  => [
 echo $form->getView()->render($renderOpts);
 ```
 
-And should output : 
+And should output :
 
 ```
 <form method="post" enctype="multipart/form-data" class="wwpform " action="/my/form/action/url">
@@ -55,24 +55,17 @@ And should output :
 </form>
 ```
 
-
 ## Options
 
 As you can see in the example, it's possible to pass some options to the render method. Here's the list :
 
-- formStart // All the html attributes to be place on the form html opening tag.
-	- There's one reserved name though : showFormTag, which is a boolean you can pass to not render the < form > tag. (if you have a form object within a form object for instance)
-- formEnd : Options relevant to the bottom of the form
-	- 'showFormTag'   => true, //whether to show the closing html form tag or not
-   - 'showSubmit'    => true, //whether you want a submit btn
-   - 'submitLabel'   => __('submit'), //the submit label
-   - 'showReset'     => false, //whether you want a reset btn or not
-   - 'resetLabel'    => __('reset'), // If yes its label
-   - 'btnAttributes' => [ //Html submit attributes
-        'type'  => 'submit',
-        'class' => 'btn button',
-    ],
-   - 'resetbtnAttributes' => [ //Html reset attributes
-        'type'  => 'reset',
-        'class' => 'btn button btn-secondary',
-    ], 
+* formStart // All the html attributes to be place on the form html opening tag.
+  * There's one reserved name though : showFormTag, which is a boolean you can pass to not render the < form > tag. (if you have a form object within a form object for instance)
+* formEnd : Options relevant to the bottom of the form
+  * 'showFormTag' => true, //whether to show the closing html form tag or not
+  * 'showSubmit' => true, //whether you want a submit btn
+  * 'submitLabel' => \_\_('submit'), //the submit label
+  * 'showReset' => false, //whether you want a reset btn or not
+  * 'resetLabel' => \_\_('reset'), // If yes its label
+  * 'btnAttributes' => \[ //Html submit attributes 'type' => 'submit', 'class' => 'btn button', ],
+  * 'resetbtnAttributes' => \[ //Html reset attributes 'type' => 'reset', 'class' => 'btn button btn-secondary', ],
