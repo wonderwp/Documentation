@@ -44,6 +44,12 @@ It will list you the parameters you can use and how you can use them.
 
 For **agentic automation**, WonderWP supports **AI-driven Taxonomy creation**. You can instruct your **agent** to create a Taxonomy based on predefined **AI rules**.
 
+For example :&#x20;
+
+> I would like to create a new WonderWp Taxonomy called "My Taxonomy" inside the plugin "my-plugin"
+
+The agent should be able to take it from there.
+
 ### How it works:
 
 1. The **AI rule follows WonderWP coding standards** by default.
