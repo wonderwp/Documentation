@@ -25,10 +25,8 @@ For **consistency and ease**, WonderWP provides a **CLI command** that generates
 🔹 **To generate a new Block Type, run:**
 
 ```bash
-wp wonderwp generate:block-type
+wp wonderwp generate block-type
 ```
-
-
 
 This will create a structured **Block Type class**, already detected and managed by WonderWP.
 

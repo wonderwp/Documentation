@@ -25,10 +25,8 @@ For **consistency and ease**, WonderWP provides a **CLI command** that generates
 🔹 **To generate a new Hook, run:**
 
 ```bash
-wp wonderwp generate:hook
+wp wonderwp generate hook
 ```
-
-
 
 This will create a structured **Hook class**, already detected and managed by WonderWP.
 

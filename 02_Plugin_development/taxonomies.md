@@ -25,10 +25,8 @@ For **consistency and ease**, WonderWP provides a **CLI command** that generates
 🔹 **To generate a new Taxonomy, run:**
 
 ```bash
-wp wonderwp generate:taxonomy
+wp wonderwp generate taxonomy
 ```
-
-
 
 This will create a structured **Taxonomy class**, already detected and managed by WonderWP.
 

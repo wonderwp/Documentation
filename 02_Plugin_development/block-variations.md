@@ -25,10 +25,8 @@ For **consistency and ease**, WonderWP provides a **CLI command** that generates
 🔹 **To generate a new Block Variation, run:**
 
 ```bash
-wp wonderwp generate:block-variation
+wp wonderwp generate block-variation
 ```
-
-
 
 This will create a structured **Block Variation class**, already detected and managed by WonderWP.
 

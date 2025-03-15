@@ -25,7 +25,7 @@ For **consistency and ease**, WonderWP provides a **CLI command** that generates
 🔹 **To generate a new Custom Post Type, run:**
 
 ```bash
-wp wonderwp generate:cpt <post-type-name>
+wp wonderwp generate cpt <post-type-name>
 ```
 
 This will create a structured **CustomPostType class**, already detected and managed by WonderWP.

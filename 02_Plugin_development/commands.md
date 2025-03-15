@@ -25,10 +25,8 @@ For **consistency and ease**, WonderWP provides a **CLI command** that generates
 🔹 **To generate a new Command, run:**
 
 ```bash
-wp wonderwp generate:command
+wp wonderwp generate command
 ```
-
-
 
 This will create a structured **Command class**, already detected and managed by WonderWP.
 
