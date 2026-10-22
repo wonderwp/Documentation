@@ -6,6 +6,8 @@ If you'd like to start a new modern WordPress project rapidly, with
 - [WP-CLI](https://wp-cli.org/) as Command Line Tools,
 - and [WonderWp](http://wonderwp.net/) as a framework,
 
+Requirements: PHP >= 8.3, Composer 2, WordPress 7 (current Bedrock releases install it through `roots/wordpress`).
+
 Then you can follow the steps below : 
 
 1. Create a new project:
@@ -43,9 +45,10 @@ Then you can follow the steps below :
    ```sh
    $ composer require wonderwp/wonderwp
    ```
+   Bedrock loads must-use plugins from subfolders, so no proxy file is needed.
    
 6. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
-7. Access your WordPress site at `https://example.com/wp/wp-admin/` and its admin at `https://example.com/wp/wp-admin/`
+7. Access your WordPress site at `https://example.com/` and its admin at `https://example.com/wp/wp-admin/`
 
 With these 5 commands, your install should be ready to run with full modern development capabilities.
 
