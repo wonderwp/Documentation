@@ -11,15 +11,13 @@
 ### 1.1) Check your composer.json file
 WonderWp relies on composer to run properly. We'll therefore make sure that your WordPress install is able to run composer by checking if it has a correct composer.json file that holds the composer configuration.
 
-- If you don't have a composer.json file already, create one manually at the root of your project (next to `wp-content`) with the following content :
+- If you don't have a composer.json file already, create one manually at the root of your project with the following content :
 
 ```
 {
 	"name": "yourauthorname/yourprojectname",
 	"description": "Testing a WordPress project with wonderwp capabilities",
 	"type": "project",
-	"minimum-stability": "dev",
-	"prefer-stable": true,
 	"config": {
 		"allow-plugins": {
 			"composer/installers": true
@@ -43,13 +41,12 @@ WonderWp relies on composer to run properly. We'll therefore make sure that your
 
 Don't forget to replace `yourauthorname/yourprojectname` by your own values.
 
-- If you do have one already, what's important is to add the **extra** section, the **allow-plugins** entry, and the **minimum-stability** / **prefer-stable** keys to yours. 
+- If you do have one already, what's important is to add the **extra** section and the **allow-plugins** entry to yours. 
 
 Why those keys:
 
 - **installer-paths** tells composer where to put WordPress must-use plugins, plugins and themes. Please adjust the folder paths to match your own installation if necessary.
 - **allow-plugins**: since Composer 2.2, a composer plugin such as `composer/installers` only runs if it is allowed. Without this entry, `composer require` stops with an error in non interactive mode (or asks you the question in interactive mode).
-- **minimum-stability** / **prefer-stable**: WonderWp and its components are installed from their development branches. `minimum-stability: dev` lets composer install them, `prefer-stable: true` keeps every other package on stable releases.
 
 ### 1.2) composer installer
 
@@ -70,7 +67,7 @@ You are now ready to install vendors, WordPress plugins, themes and must use plu
 WonderWp is a composer package, you can get it like this:
 
 ```
-composer require "wonderwp/wonderwp:dev-develop"
+composer require wonderwp/wonderwp
 ```
 
 After the command finished running, you should have the following folders :
@@ -84,7 +81,7 @@ If that's not the case you might have a problem with your composer configuration
 ## 3) Initialize WonderWp
 
 To be initialized, the WonderWp Framework loader should be called.
-By default, WonderWp does so via its must use plugin called autoload-wwp. It loads `vendor/autoload.php` from the WordPress root (`ABSPATH`), so the `vendor` folder must sit next to `wp-content`, which is the case if you followed step 1.1.
+By default, WonderWp does so via its must use plugin called autoload-wwp.
 
 The problem is that according to the must use plugins doc at the time of writing :
 
@@ -119,50 +116,35 @@ You can also check it with WP-CLI :
 wp plugin list --status=must-use
 ```
 
-Note : WonderWp requires `wp-cli/wp-cli` (through `wonderwp/generator-wwp`), without the commands bundle. Its `vendor/bin/wp` therefore only knows a few commands (`wp plugin` is not one of them). If a tool picks `vendor/bin/wp` first (DDEV's `ddev wp` does), call your global WP-CLI binary instead (`ddev exec /usr/local/bin/wp ...` on DDEV), or `composer require wp-cli/wp-cli-bundle`.
-
 If that's the case, your install should be ready to run with full modern development capabilities.
 It's now time to [create your first plugin](../02_Creating_a_plugin/01_Getting_Started.md).
 
 ## Working on the framework itself
 
-If you want to change the framework and see your changes right away in a WordPress site, clone [wonderwp/wonderwp](https://github.com/wonderwp/wonderwp) next to your site, and tell composer to symlink it with a path repository :
+If you want to change the framework and see your changes right away in your WordPress site, install it from source instead of using a tagged release.
+
+Add these keys to your composer.json :
 
 ```
-- my-workspace/
-    - Framework/    (git clone of wonderwp/wonderwp)
-    - my-site/      (the WordPress site, with its composer.json)
-```
-
-In `my-site/composer.json` :
-
-```
-"repositories": [
-	{
-		"type": "path",
-		"url": "../Framework",
-		"options": {
-			"symlink": true,
-			"versions": { "wonderwp/wonderwp": "dev-develop" }
-		}
+"minimum-stability": "dev",
+"prefer-stable": true,
+"config": {
+	"preferred-install": {
+		"wonderwp/*": "source",
+		"*": "dist"
 	}
-],
-"require": {
-	"wonderwp/wonderwp": "dev-develop"
 }
 ```
 
-Then run `composer update wonderwp/wonderwp`. `vendor/wonderwp/wonderwp` becomes a symlink to `../Framework`: any change in `Framework/src` is live, without reinstalling. The `versions` option gives the local package the version your project requires, whatever branch you have checked out in `Framework`.
+- **minimum-stability** / **prefer-stable**: a development version of WonderWp and of its components can only be installed with `minimum-stability: dev`. `prefer-stable: true` keeps every other package on stable releases.
+- **preferred-install**: composer clones the WonderWp packages with git instead of downloading an archive.
 
-If your site runs in a container (DDEV, Docker...), the `Framework` folder must be mounted so that `../Framework` resolves inside the container too. With DDEV, add a `.ddev/docker-compose.framework.yaml` file to the site :
+Then require the development version :
 
 ```
-services:
-  web:
-    volumes:
-      - ../../Framework:/var/www/Framework
+composer require "wonderwp/wonderwp:dev-develop"
 ```
 
-The site lives in `/var/www/html` in the container, so `../Framework` is `/var/www/Framework`, and the relative symlink works both on your machine and in the container.
+`vendor/wonderwp/wonderwp` (and every `vendor/wonderwp/*` component) is then a git repository: you can create a branch, change the code, see the result in your site right away, commit and push from there.
 
-The framework's own unit tests run from the `Framework` folder (`composer install` then `composer test`), see its README.
+The framework's own unit tests run from a clone of the framework (`composer install` then `composer test`), see its README.

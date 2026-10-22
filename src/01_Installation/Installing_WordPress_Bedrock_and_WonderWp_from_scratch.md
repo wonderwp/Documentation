@@ -43,9 +43,9 @@ Then you can follow the steps below :
        
 5. Install WonderWp
    ```sh
-   $ composer require "wonderwp/wonderwp:dev-develop"
+   $ composer require wonderwp/wonderwp
    ```
-   Bedrock already sets `minimum-stability: dev` and `prefer-stable: true`, which the WonderWp components need, and loads must-use plugins from subfolders, so no proxy file is needed.
+   Bedrock loads must-use plugins from subfolders, so no proxy file is needed.
    
 6. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
 7. Access your WordPress site at `https://example.com/` and its admin at `https://example.com/wp/wp-admin/`
