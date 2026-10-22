@@ -49,7 +49,7 @@ Why those keys:
 
 - **installer-paths** tells composer where to put WordPress must-use plugins, plugins and themes. Please adjust the folder paths to match your own installation if necessary.
 - **allow-plugins**: since Composer 2.2, a composer plugin such as `composer/installers` only runs if it is allowed. Without this entry, `composer require` stops with an error in non interactive mode (or asks you the question in interactive mode).
-- **minimum-stability** / **prefer-stable**: the current version of WonderWp and its components are development branches (see step 2). `minimum-stability: dev` lets composer install them, `prefer-stable: true` keeps every other package on stable releases.
+- **minimum-stability** / **prefer-stable**: WonderWp and its components are installed from their development branches. `minimum-stability: dev` lets composer install them, `prefer-stable: true` keeps every other package on stable releases.
 
 ### 1.2) composer installer
 
@@ -67,13 +67,11 @@ You are now ready to install vendors, WordPress plugins, themes and must use plu
 
 ## 2) Require WonderWp
 
-WonderWp is a composer package. The version that runs on PHP 8.3 and WordPress 7 is the `feature` branch, get it like this:
+WonderWp is a composer package, you can get it like this:
 
 ```
-composer require "wonderwp/wonderwp:dev-feature@dev"
+composer require "wonderwp/wonderwp:dev-develop"
 ```
-
-Note : a plain `composer require wonderwp/wonderwp` installs the last tagged release (1.6.0), which targets PHP 7 and older WordPress versions.
 
 After the command finished running, you should have the following folders :
 
@@ -132,7 +130,7 @@ If you want to change the framework and see your changes right away in a WordPre
 
 ```
 - my-workspace/
-    - Framework/    (git clone of wonderwp/wonderwp, feature branch)
+    - Framework/    (git clone of wonderwp/wonderwp)
     - my-site/      (the WordPress site, with its composer.json)
 ```
 
@@ -145,16 +143,16 @@ In `my-site/composer.json` :
 		"url": "../Framework",
 		"options": {
 			"symlink": true,
-			"versions": { "wonderwp/wonderwp": "dev-feature" }
+			"versions": { "wonderwp/wonderwp": "dev-develop" }
 		}
 	}
 ],
 "require": {
-	"wonderwp/wonderwp": "dev-feature@dev"
+	"wonderwp/wonderwp": "dev-develop"
 }
 ```
 
-Then run `composer update wonderwp/wonderwp`. `vendor/wonderwp/wonderwp` becomes a symlink to `../Framework`: any change in `Framework/src` is live, without reinstalling. The `versions` option keeps the `dev-feature` version whatever branch you have checked out in `Framework`.
+Then run `composer update wonderwp/wonderwp`. `vendor/wonderwp/wonderwp` becomes a symlink to `../Framework`: any change in `Framework/src` is live, without reinstalling. The `versions` option gives the local package the version your project requires, whatever branch you have checked out in `Framework`.
 
 If your site runs in a container (DDEV, Docker...), the `Framework` folder must be mounted so that `../Framework` resolves inside the container too. With DDEV, add a `.ddev/docker-compose.framework.yaml` file to the site :
 

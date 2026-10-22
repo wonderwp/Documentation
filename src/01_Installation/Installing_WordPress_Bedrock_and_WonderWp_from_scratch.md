@@ -41,9 +41,9 @@ Then you can follow the steps below :
    $ vendor/bin/wp core install --url="yourlocalurl" --title="yoursitetitle" --admin_user="########" --admin_email="################"
    ```
        
-5. Install WonderWp (the `feature` branch is the version that runs on PHP 8.3 and WordPress 7; a plain `composer require wonderwp/wonderwp` installs the last tagged release, 1.6.0, which targets PHP 7)
+5. Install WonderWp
    ```sh
-   $ composer require "wonderwp/wonderwp:dev-feature@dev"
+   $ composer require "wonderwp/wonderwp:dev-develop"
    ```
    Bedrock already sets `minimum-stability: dev` and `prefer-stable: true`, which the WonderWp components need, and loads must-use plugins from subfolders, so no proxy file is needed.
    
